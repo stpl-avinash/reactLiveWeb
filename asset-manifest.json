@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/reactLiveWeb/static/css/main.7932149f.css",
+    "main.js": "/reactLiveWeb/static/js/main.6fccb58b.js",
+    "index.html": "/reactLiveWeb/index.html",
+    "main.7932149f.css.map": "/reactLiveWeb/static/css/main.7932149f.css.map",
+    "main.6fccb58b.js.map": "/reactLiveWeb/static/js/main.6fccb58b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7932149f.css",
+    "static/js/main.6fccb58b.js"
+  ]
+}
