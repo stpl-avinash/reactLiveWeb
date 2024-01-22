@@ -6,7 +6,7 @@ const Header = () => {
         <>
             <NavLink activeClassName='is-active' to='/about'>About</NavLink> <br/>
             <NavLink activeClassName='is-active' to='/contact'>Contact</NavLink> <br/>
-            {/* <NavLink activeClassName='is-active' to='/home'>Home</NavLink> */}
+            <NavLink activeClassName='is-active' to='/home'>Home</NavLink>
         </>
     )
 }
