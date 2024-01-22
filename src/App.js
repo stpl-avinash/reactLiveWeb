@@ -11,7 +11,7 @@ import Header from "./Component/Header";
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
     <Routes>
       {/* <Route  path="/" element={ <Header/> } /> */}
       <Route path="/" element={ <Home/> } />
