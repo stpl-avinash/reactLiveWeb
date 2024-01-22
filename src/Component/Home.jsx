@@ -7,7 +7,6 @@ import values2 from '../assets/img/values-2.png';
 import values3 from '../assets/img/values-3.png';
 
 
-
 const Home = () => {
 
   return (
