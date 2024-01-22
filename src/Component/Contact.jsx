@@ -80,19 +80,19 @@ const Contact = () => {
                                 <div className="row gy-4">
 
                                     <div className="col-md-6 ">
-                                        <input type="text" className="form-control" name="name" value={state.name} onChange={handleInputChange} placeholder="Your Name" />
+                                        <input type="text" className="form-control" name="name" value={state.name} onChange={handleInputChange} placeholder="Your Name" required/>
                                     </div>
 
                                     <div className="col-md-6 ">
-                                        <input type="email" className="form-control" name="email" value={state.email} onChange={handleInputChange} placeholder="Your Email" />
+                                        <input type="email" className="form-control" name="email" value={state.email} onChange={handleInputChange} placeholder="Your Email" required/>
                                     </div>
 
                                     <div className="col-md-12 ">
-                                        <input type="text" className="form-control" name="subject" value={state.subject} onChange={handleInputChange} placeholder="Your Subject" />
+                                        <input type="text" className="form-control" name="subject" value={state.subject} onChange={handleInputChange} placeholder="Your Subject" required/>
                                     </div>
 
                                     <div className="col-md-12">
-                                        <textarea className="form-control" name="message" value={state.message} onChange={handleInputChange} rows="6" placeholder="Message"></textarea>
+                                        <textarea className="form-control" name="message" value={state.message} onChange={handleInputChange} rows="6" placeholder="Message" required></textarea>
                                     </div>
 
                                     <div className="col-md-12 text-center">
