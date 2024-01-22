@@ -47,21 +47,21 @@ const Contact = () => {
                                     <div className="info-box">
                                         <i className="bi bi-geo-alt"></i>
                                         <h3>Address</h3>
-                                        <p>A108 Adam Street,<br />New York, NY 535022</p>
+                                        <p>A108 Hadapsar Street,<br />Pune, India, NY 535022</p>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="info-box">
                                         <i className="bi bi-telephone"></i>
                                         <h3>Call Us</h3>
-                                        <p>+1 5589 55488 55<br />+1 6678 254445 41</p>
+                                        <p>+91 0099 9999 99<br />+91 0088 8888 88</p>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="info-box">
                                         <i className="bi bi-envelope"></i>
                                         <h3>Email Us</h3>
-                                        <p>info@example.com<br />contact@example.com</p>
+                                        <p>info@example.com<br />avinashrathod@gmail.com</p>
                                     </div>
                                 </div>
                                 <div className="col-md-6">
