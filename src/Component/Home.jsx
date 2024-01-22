@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
 
-      <header id="header" className="header fixed-top">
+      <header id="header" className="header fixed-top bg-white">
         <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
 
           <a className="logo d-flex align-items-center">
