@@ -1,47 +1,42 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from '@material-ui/core/Button';
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
+const signUpSchema = Yup.object({
+    name: Yup.string().min(2).max(25).required("Please enter your name").matches(
+        '^[a-zA-Z][a-zA-Z ]*$', "Please enter valid name"),
+    email: Yup.string().email().required("Please enter your email"),
+    subject: Yup.string().min(6).required("Please enter your subject"),
+    message: Yup.string().min(6).required("Please enter your message"),
+});
+
+const initialValues = { name: "", email: "", subject: "", message: ""};
 
 const Contact = () => {
 
-
-    const [state, setState] = useState({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-    
-      const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setState((prevProps) => ({
-          ...prevProps,
-          [name]: value
-        }));
-      };
-    
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        // alert(JSON.stringify(state, null, 2));
-        alert('Name is :' + state.name + ' Email is :' + state.email + ' Subject is :' + state.subject + ' Message is :' + state.message)
-        console.log(state);
-        setState({ name: "", email: "", subject: "", message: ""});
-      };
+    const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
+        initialValues,
+        validationSchema: signUpSchema,
+        onSubmit: (values, action) => {
+            console.log(values);
+            action.resetForm();
+        },
+    });
+    console.log(errors);
 
 
     return (
         <>
             <section id="contact" className="contact">
                 <div className="container" data-aos="fade-up">
-
                     <header className="section-header">
                         <h2>Contact</h2>
                         <p>Contact Us</p>
                     </header>
 
                     <div className="row gy-4">
-
                         <div className="col-lg-6">
-
                             <div className="row gy-4">
                                 <div className="col-md-6">
                                     <div className="info-box">
@@ -74,42 +69,34 @@ const Contact = () => {
                             </div>
 
                         </div>
-
                         <div className="col-lg-6">
                             <form onSubmit={handleSubmit}>
-                                <div className="row gy-4">
-
+                                <div className="row gy-2">
                                     <div className="col-md-6 ">
-                                        <input type="text" className="form-control" name="name" value={state.name} onChange={handleInputChange} placeholder="Your Name" required/>
+                                        <input type="text" className="form-control" name="name" id="name" value={values.name} onChange={handleChange} onBlur={handleBlur} placeholder="Your Name" />
+                                        {errors.name && touched.name ? ( <p className="form-error">{errors.name}</p> ) : null}
                                     </div>
-
                                     <div className="col-md-6 ">
-                                        <input type="email" className="form-control" name="email" value={state.email} onChange={handleInputChange} placeholder="Your Email" required/>
+                                        <input type="email" className="form-control" name="email" id="email" value={values.email} onChange={handleChange} onBlur={handleBlur} placeholder="Your Email" />
+                                        {errors.email && touched.email ? ( <p className="form-error">{errors.email}</p> ) : null}
                                     </div>
-
                                     <div className="col-md-12 ">
-                                        <input type="text" className="form-control" name="subject" value={state.subject} onChange={handleInputChange} placeholder="Your Subject" required/>
+                                        <input type="text" className="form-control" name="subject" id="subject" value={values.subject} onChange={handleChange} onBlur={handleBlur} placeholder="Your Subject" />
+                                        {errors.subject && touched.subject ? ( <p className="form-error">{errors.subject}</p> ) : null}
                                     </div>
-
                                     <div className="col-md-12">
-                                        <textarea className="form-control" name="message" value={state.message} onChange={handleInputChange} rows="6" placeholder="Message" required></textarea>
+                                        <textarea className="form-control" name="message" id="message" value={values.message} onChange={handleChange} onBlur={handleBlur} rows="6" placeholder="Message" />
+                                        {errors.message && touched.message ? ( <p className="form-error">{errors.message}</p> ) : null}
                                     </div>
-
                                     <div className="col-md-12 text-center">
                                         <Button variant="contained" type="submit" className="form-control" color="primary"> Send Message </Button>
                                     </div>
-
                                 </div>
                             </form>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </section>
-
         </>
     )
 }
