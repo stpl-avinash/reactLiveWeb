@@ -36,7 +36,7 @@ const Login = () => {
                         <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                             <div className="shadow-sm p-3 bg-body rounded">
                                 <form onSubmit={handleSubmit}>
-                                    <h3 className="fw-normal mb-3 pb-3" style={{ 'letter-spacing': '1px' }}>Log in</h3>
+                                    <h3 className="fw-normal mb-3 pb-3">Log in</h3>
                                     <div className="form-outline mb-4">
                                         <input type="email" className="form-control" name="email" id="email" value={values.email} onChange={handleChange} onBlur={handleBlur} placeholder="Enter Email" />
                                         {errors.email && touched.email ? (<p className="form-error">{errors.email}</p>) : null}
@@ -47,7 +47,7 @@ const Login = () => {
                                     </div>
                                     <div className="text-center text-lg-start mt-4 pt-2">
                                         <Button variant="contained" type="submit" className="btn btn-primary btn-lg" color="primary"
-                                            style={{ 'padding-left': '2.5rem', 'padding-right': '2.5rem' }}> Login </Button>
+                                            > Login </Button>
                                     </div>
                                 </form>
                             </div>
