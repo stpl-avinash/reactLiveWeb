@@ -19,7 +19,7 @@ function App() {
   useEffect(() => { callFun() }, []);
 
   const callFun = () => {
-    (location.pathname == '/reactLiveWeb/login') ? setIsShow(false) : setIsShow(true);
+    (location.pathname == '/login') ? setIsShow(false) : setIsShow(true);
   }
    
   return (
@@ -32,7 +32,7 @@ function App() {
       <Route path="about" element={ <About/> } />
       <Route path="contact" element={ <Contact/> } />
       <Route path="table" element={ <TableList/> } />
-      <Route path="reactLiveWeb/login" element={ <Login/> } />
+      <Route path="login" element={ <Login/> } />
     </Routes>
   </div>
   );
