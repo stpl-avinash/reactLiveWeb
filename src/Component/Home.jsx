@@ -26,6 +26,7 @@ const Home = () => {
               <li><a className="nav-link scrollto active" href="#hero">Home</a></li>
               <li><a className="nav-link scrollto" href="#about">About</a></li>
               <li><a className="nav-link scrollto" href="#contact">Contact</a></li>
+              <li><a className="nav-link scrollto" href="./login">Login</a></li>
             </ul>
             <i className="bi bi-list mobile-nav-toggle"></i>
           </nav>

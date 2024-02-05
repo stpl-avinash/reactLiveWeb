@@ -9,6 +9,27 @@ ol li{
   color: #d81c1c;
 }
 
+/* Login page css */
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+
+/* Login page css end*/
+
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -41,7 +62,7 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Sections
+# Home Page CSS below all Sections
 --------------------------------------------------------------*/
 section {
   padding: 60px 0;
