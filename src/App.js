@@ -9,6 +9,9 @@ import Contact from "./Component/Contact";
 import Header from "./Component/Header";
 import TableList from "./TableList";
 import Login from "./Component/login";
+import Dashboard  from "./Component/Dashboard";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 function App() {
@@ -24,6 +27,7 @@ function App() {
    
   return (
     <div className="App">
+      <ToastContainer closeButton={false} position="top-right" />
       {isShow && <Home />}
       {/* <Header /> */}
     <Routes>
@@ -33,6 +37,7 @@ function App() {
       <Route path="contact" element={ <Contact/> } />
       <Route path="table" element={ <TableList/> } />
       <Route path="login" element={ <Login/> } />
+      <Route path="dashboard" element={ <Dashboard/> } />
     </Routes>
   </div>
   );

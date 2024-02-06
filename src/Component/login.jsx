@@ -2,25 +2,51 @@ import React from "react";
 import Button from '@material-ui/core/Button';
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+
 
 const signUpSchema = Yup.object({
-    email: Yup.string().email().required("Please enter your email"),
+    username: Yup.string().min(6).required("Please enter your username"),
     password: Yup.string().min(6).required("Please enter your password"),
 });
 
-const initialValues = { email: "", password: "" };
+const initialValues = { username: "", password: "" };
 
 const Login = () => {
+
+    const navigate = useNavigate();
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues,
         validationSchema: signUpSchema,
         onSubmit: (values, action) => {
-            console.log(values);
+            getUsersData(values);
             action.resetForm();
         },
     });
-    console.log(errors);
+
+    const getUsersData = async (obj) => {
+        const requestOptions = {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userName: obj.username, password: obj.password })
+        };
+
+        await fetch(`https://demoapimsebiot.erpguru.in/MSEB_iOT/api/User/UserLogin`, requestOptions)
+            .then(response => response.json())
+            .then(res => {
+                if (res.statusCode == 200) {
+                    toast.success(res.statusMessage);
+                    sessionStorage.setItem('loggedIn', 'true');
+                    localStorage.setItem('loggedInData', JSON.stringify(res.responseData));
+                    navigate('/dashboard');
+                } else {
+                    toast.error(res.statusMessage);
+                }
+            }).catch(error => toast.error(error));
+    }
+
 
     return (
         <>
@@ -38,8 +64,8 @@ const Login = () => {
                                 <form onSubmit={handleSubmit}>
                                     <h3 className="fw-normal mb-3 pb-3">Log in</h3>
                                     <div className="form-outline mb-4">
-                                        <input type="email" className="form-control" name="email" id="email" value={values.email} onChange={handleChange} onBlur={handleBlur} placeholder="Enter Email" />
-                                        {errors.email && touched.email ? (<p className="form-error">{errors.email}</p>) : null}
+                                        <input type="text" className="form-control" name="username" id="username" value={values.username} onChange={handleChange} onBlur={handleBlur} placeholder="Enter UserName" />
+                                        {errors.username && touched.username ? (<p className="form-error">{errors.username}</p>) : null}
                                     </div>
                                     <div className="form-outline mb-3">
                                         <input type="password" className="form-control" name="password" id="password" value={values.name} onChange={handleChange} onBlur={handleBlur} placeholder="Enter password" />
@@ -47,7 +73,7 @@ const Login = () => {
                                     </div>
                                     <div className="text-center text-lg-start mt-4 pt-2">
                                         <Button variant="contained" type="submit" className="btn btn-primary btn-lg" color="primary"
-                                            > Login </Button>
+                                        > Login </Button>
                                     </div>
                                 </form>
                             </div>
